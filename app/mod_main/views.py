@@ -1,11 +1,19 @@
-from flask import Blueprint
+from flask import Blueprint, render_template, request
 
 mod_main = Blueprint('main', __name__)
 
 
 @mod_main.route('/', methods=['GET'])
 def index():
-    ''' Renders the App index page.
-    :return:
-    '''
-    return "Welcome to the Flask App."
+    return "Welcome to the ARKEP App."
+
+@mod_main.route('/form', methods=['GET', 'POST'])
+def main():
+	if request.method == 'GET':
+		return render_template('index.html')
+	elif request.methods == 'POST':
+		return render_template('index.html')
+
+@mod_main.route('/reports', methods=['GET'])
+def report():
+	return render_template('reports.html');
