@@ -5,37 +5,38 @@
 	<section>
 		<div class="row" id="form-container">	
 			<div class="container">
-			<a href="http://0.0.0.0:5000/reports">Go to Reports Page</a>
-				<form action="#">
+			<!-- <a href="http://0.0.0.0:5000/reports">Go to Reports Page</a> -->
+			<!-- <p>{{ field1 }}</p> -->
+				<form id="theForm" method="POST">
 					<ul class="collapsible" data-collapsible="accordion">
 					  	<li>
-						    	<div class="collapsible-header active"><i class="material-icons">filter_1</i>Qëllimi i njoftimit</div>
+						    	<div class="hapi1 collapsible-header active"><i class="material-icons">filter_1</i>Qëllimi i njoftimit</div>
 						    	<div class="info-purpose collapsible-body">
 						    		<p>
-						    			<input type="checkbox" class="filled-in" id="service-start" />
-		      						<label for="service-start">Fillimi i shërbimit</label>
+						    			<input name="fillimi_sherbimit" name="service-start" type="checkbox" class="filled-in" id="service-start"/>
+		      							<label for="service-start">Fillimi i shërbimit</label>
 						    		</p>
 						    		<p>
-						    			<input type="checkbox" class="filled-in" id="grow-service" checked="checked" />
-		      						<label for="grow-service">Shtim shërbimi</label>
+						    			<input name="shtimi_sherbimi" type="checkbox" class="filled-in" id="grow-service" />
+		      							<label for="grow-service">Shtim shërbimi</label>
 						    		</p>
 						    		<p>
-						    			<input type="checkbox" class="filled-in" id="service-removal" />
-		      						<label for="service-removal">Heqje shërbimi</label>
+						    			<input name="heqje_sherbimi" type="checkbox" class="filled-in" id="service-removal" />
+		      							<label for="service-removal">Heqje shërbimi</label>
 						    		</p>
 						    	</div>
 					  	</li>
 
 					  	<li>
 						    	<div class="collapsible-header"><i class="material-icons">filter_2</i>Të dhënat për ndërmarrësin</div>
-						    	<div class="info-company collapsible-body col s12">
+						    	<div class="hapi2 info-company collapsible-body col s12">
 							    	<div class="row info-company-field">
 							    		<div class="col s4">
 							         	<p>1.1 - Emri i Ndërmarrësit (Entiteti):</p>
 							         </div>
 							         <div class="input-field col s8">
 							         	<!-- max. 20chars -->
-							         	<input placeholder="Emri i Ndërmarrësit" type="text" class="validate">
+							         	<input required="required" name="emri_ndermarresit"  placeholder="Emri i Ndërmarrësit" type="text" id="entre_name">
 							         </div>
 							      </div>
 
@@ -45,7 +46,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 9numbers -->
-								         	<input placeholder="Numri i Regjistrimit të Biznesit" type="number" class="validate">
+								         	<input name="numri_regjistrimit_biznesit" placeholder="Numri i Regjistrimit të Biznesit" type="text">
 								         </div>
 								   </div>
 
@@ -55,7 +56,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 9numbers-->
-								         	<input placeholder="Numri fiskal" type="number" class="validate">
+								         	<input name="numri_fiskal" placeholder="Numri fiskal" type="text">
 								         </div>
 								   </div>
 
@@ -65,7 +66,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 30letters-->
-								         	<input placeholder="Adresa" type="text" class="validate">
+								         	<input name="adresa_ndermarresit" placeholder="Adresa" type="text">
 								         </div>
 								   </div>
 
@@ -75,7 +76,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- mx. 10letters -->
-								         	<input placeholder="Numri i Telefonit" type="tel" class="validate">
+								         	<input name="numri_tel" placeholder="Numri i Telefonit" type="tel">
 								         </div>
 								   </div>
 
@@ -85,7 +86,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         	<!-- max. 9numbers-->
-								         	<input placeholder="Numri i Faksit" type="tel" class="validate">
+								         	<input name="num_fax" placeholder="Numri i Faksit" type="tel">
 								         </div>
 								   </div>
 
@@ -94,7 +95,7 @@
 								         	<p>1.7 - E-mail adresa</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input placeholder="E-mail adresa" type="email" class="validate">
+								         	<input name="email_ndermarresit" placeholder="E-mail adresa" type="email" class="validate">
 								         </div>
 								   </div>
 						    	</div>
@@ -102,13 +103,14 @@
 
 					  	<li>
 						    	<div class="collapsible-header"><i class="material-icons">filter_3</i>Të dhënat për zyrtarin ligjërisht të përgjegjëshëm</div>
-						    	<div class="info-company collapsible-body col s12">
+						    	<div class="hapi3 info-company collapsible-body col s12">
 							    	<div class="row info-company-field">
 							    		<div class="col s4">
 							         	<p>2.1 - Emri i zyrtarit:</p>
 							         </div>
 							         <div class="input-field col s8">
-							         	<input placeholder="Emri i zyrtarit" type="text" class="validate">
+							         	<!-- max. 10 letters -->
+							         	<input name="emri_zyrtarit" placeholder="Emri i zyrtarit" type="text">
 							         </div>
 							      </div>
 
@@ -116,8 +118,9 @@
 								         <div class="col s4">
 								         	<p>2.2 - Adresa:</p>
 								         </div>
-								         <div class="input-field col s8">
-								         	<input placeholder="Adresa" type="text" class="validate">
+								         <div class="input-field col s8"> 
+								         <!--max. 25letters-->
+								         	<input name="adresa_zyrtarit" placeholder="Adresa" type="text">
 								         </div>
 								   </div>
 
@@ -126,7 +129,8 @@
 								         	<p>2.3 - Numri i Telefonit</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input placeholder="Numri i Telefonit" type="text" class="validate">
+								         <!-- max. 10letters-->
+								         	<input name="numri_telefonit_zyrtarit" placeholder="Numri i Telefonit" type="text" class="validate">
 								         </div>
 								   </div>
 
@@ -135,7 +139,8 @@
 								         	<p>2.4 - Numri i Faksit</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input placeholder="Adresa" type="text" class="validate">
+								         <!--max.25letters-->
+								         	<input name="num_fax" placeholder="Numri i faksit" type="text" class="validate">
 								         </div>
 								   </div>
 
@@ -144,7 +149,7 @@
 								         	<p>2.5 - E-mail adresa</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input placeholder="E-mail adresa" type="tel" class="validate">
+								         	<input name="email_address_zyrtarit" placeholder="E-mail adresa" type="tel" class="validate">
 								         </div>
 								   </div>
 
@@ -153,7 +158,8 @@
 								         	<p>2.6 - Numri i ID</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input placeholder="Numri i ID" type="tel" class="validate">
+								         	<!--max.23 numbers-->
+								         	<input name="num_id" placeholder="Numri i ID" type="tel" class="validate">
 								         </div>
 								   </div>
 						    	</div>
@@ -176,15 +182,15 @@
 							            <td class="num-data">1.</td>
 							            <td>Ofrimi i rrjetit publik fiks</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="local" />
+							            		<input name="lokal" type="checkbox" class="filled-in" id="local" />
 		      								<label for="local">Lokal</label><br/>
-		      								<input type="checkbox" class="filled-in" id="national" />
+		      								<input name="nacional" type="checkbox" class="filled-in" id="national" />
 		      								<label for="national">Nacional</label><br/>
 
 		      								<input type="checkbox" class="filled-in etc_check" id="etc" />
 		      								<label for="etc">Tjera:</label>
 
-		      								<input placeholder="Specifiko" type="text" class="specify animated fadeIn validate specify-input">
+		      								<input name="ofrimi-rrjetit-publik-fiks-tjera" placeholder="Specifiko" type="text" class="specify animated fadeIn validate specify-input">
 							            </td>
 							          </tr>
 
@@ -193,15 +199,15 @@
 							            <td class="num-data">2.</td>
 							            <td>Ofrimi i shërbimeve publike fikse</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="local-service" />
+							            		<input name="sherbime-tel-lokale-nacionale" type="checkbox" class="filled-in" id="local-service" />
 		      								<label for="local-service">Shërbime telefonike lokale/nacionale</label><br/>
-		      								<input type="checkbox" class="filled-in" id="tel-international-services" />
+		      								<input name="sherbime-tel-nderkombetare" type="checkbox" class="filled-in" id="tel-international-services" />
 		      								<label for="tel-international-services">Shërbime telefonike ndërkombëtare</label><br/>
 
 		      								<input type="checkbox" class="filled-in etc_check_2" id="etc-2" />
 		      								<label for="etc-2">Shërbime tjera:</label>
 
-		      								<input placeholder="Specifiko" type="text" class="specify-2 animated fadeIn validate specify-input">
+		      								<input name="ofrimi-sherbimeve-publike-fikse-tjera" placeholder="Specifiko" type="text" class="specify-2 animated fadeIn validate specify-input">
 							            </td>
 							          </tr>
 
@@ -209,9 +215,9 @@
 							            <td class="num-data">3.</td>
 							            <td>Ofrimi i rrjetit publik mobil</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="local-2" />
+							            		<input name="ofrimi-rrjetit-publik-mobil-lokal" type="checkbox" class="filled-in" id="local-2" />
 		      								<label for="local-2">Lokal</label><br/>
-		      								<input type="checkbox" class="filled-in" id="national-2" />
+		      								<input name="ofrimi-rrjetit-publik-mobil-nacional" type="checkbox" class="filled-in" id="national-2" />
 		      								<label for="national-2">Nacional</label><br/>
 							            </td>
 							          </tr>
@@ -220,9 +226,9 @@
 							            <td class="num-data">4.</td>
 							            <td>Ofrimi i shërbimeve publike mobile</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="tel-voice-service" />
+							            		<input name="sherbime-tel-zerit" type="checkbox" class="filled-in" id="tel-voice-service" />
 		      								<label for="tel-voice-service">Shërbime telefonike të zërit</label><br/>
-		      								<input type="checkbox" class="filled-in" id="data-broadcasting" />
+		      								<input name="transmetim-dhenash" type="checkbox" class="filled-in" id="data-broadcasting" />
 		      								<label for="data-broadcasting">Transmetim të dhënash</label><br/>
 							            </td>
 							          </tr>
@@ -231,9 +237,9 @@
 							            <td class="num-data">5.</td>
 							            <td>Ofrimi i shërbimeve të linjave me qira</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="optical-fiber" />
+							            		<input name="fiber-optik-pa-ndriqim" type="checkbox" class="filled-in" id="optical-fiber" />
 		      								<label for="optical-fiber">Fibër optik të pa-ndriçuar</label><br/>
-		      								<input type="checkbox" class="filled-in" id="other-lines" />
+		      								<input name="linja-tjera-qira" type="checkbox" class="filled-in" id="other-lines" />
 		      								<label for="other-lines">Linja tjera me qira</label><br/>
 							            </td>
 							          </tr>
@@ -242,7 +248,7 @@
 							            <td class="num-data">6.</td>
 							            <td>Ofrimi i rrjetave publike me transmetim satelitor</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="public-network-satellite" />
+							            		<input name="ofrimi-rrjetave-publike-transmetim-satelitor" type="checkbox" class="filled-in" id="public-network-satellite" />
 		      								<label for="public-network-satellite">Ofrimi i rrjetave publike me transmetim satelitor</label><br/>
 							            </td>
 							          </tr>
@@ -251,7 +257,7 @@
 							            <td class="num-data">7.</td>
 							            <td>Ofrimi i shërbimeve publike satelitore</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="public-services-satellite" />
+							            		<input name="ofrimi-sherbimeve-publike-satelitore" type="checkbox" class="filled-in" id="public-services-satellite" />
 		      								<label for="public-services-satellite">Ofrimi i shërbimeve publike satelitore</label><br/>
 							            </td>
 							          </tr>
@@ -260,7 +266,7 @@
 							            <td class="num-data">8.</td>
 							            <td>Ofrimi i shërbimeve të transmetimit të të dhënave (Internetit)</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="public-data-internet-satellite" />
+							            		<input name="ofrimi-sherbimeve-publike-transmetimit-te-dhenave" type="checkbox" class="filled-in" id="public-data-internet-satellite" />
 		      								<label for="public-data-internet-satellite">Ofrimi i shërbimeve publike të transmetimit të të
 	      									dhënave(internetit)</label><br/>
 							            </td>
@@ -270,7 +276,7 @@
 							            <td class="num-data">9.</td>
 							            <td>Ofrimi i shërbimeve me vlerë të shtuar</td>
 							            <td>
-							            	<input type="checkbox" class="filled-in" id="higher-value-services" />
+							            		<input name="ofrimi-sherbime-me-vlere-te-shtuar" type="checkbox" class="filled-in" id="higher-value-services" />
 		      								<label for="higher-value-services">Ofrimi i shërbimeve me vlerë të shtuar</label><br/>
 							            </td>
 							          </tr>
@@ -297,7 +303,7 @@
 								         </div>
 								         <div class="input-field textarea col m7 s12">
 								         	<p class="text-area-1">
-								         	<textarea id="textarea1" class="materialize-textarea"></textarea>
+								         	<textarea name="pershkrimi_aktivetit_faza_ofrimit" id="textarea1" class="materialize-textarea"></textarea>
 	          								<label for="textarea1">Shëno këtu:</label>
 	          								</p>
 								         </div>
@@ -310,7 +316,7 @@
 								         </div>
 								         <div class="input-field textarea col m7 s12">
 								         	<p class="text-area-1">
-								         	<textarea id="textarea2" class="materialize-textarea"></textarea>
+								         	<textarea name="faza_ofrimit" id="textarea2" class="materialize-textarea"></textarea>
 	          								<label for="textarea2">Shëno këtu:</label>
 	          								</p>
 								         </div>
@@ -331,10 +337,10 @@
 						    				   3. Kopje e dokumentit ‘Informatë mbi biznesin</p>
 						    				   <div class="btn">
 										        <span>File</span>
-										        <input type="file" multiple>
+										        <input name="dokumentet_bashkangjitura" type="file" multiple>
 										      </div>
 										      <div class="file-path-wrapper">
-										        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+										        <input name="dokumentet_bashkangjitura" class="file-path validate" type="text" placeholder="Upload one or more files">
 										      </div>
 						    			</div>
 						    		</div>
@@ -345,14 +351,17 @@
 						    	<div class="collapsible-header"><i class="material-icons">filter_7</i>Konfirmimi I njoftimit</div>
 						    	<div class="info-confirm collapsible-body col s12">
 						    		<p>Ndërmarrja kërkon që t’i lëshohet certifikata e konfirmimit të njoftimit për ofrimin e rrjeteve dhe/ose shërbimeve publike të komunikimeve elektronike të njoftuara përmes këtij formulari:</p>
-						    		<p class="check">
-								      <input name="group1" type="radio" id="yes" />
-								      <label for="yes">Po</label>
-								    </p>
-								    <p class="check">
-								      <input name="group1" type="radio" id="no" />
-								      <label for="no">Jo</label>
-								    </p>
+
+
+						    			<p>
+      <input class="with-gap" name="group1" type="radio" id="yes"  />
+      <label for="yes">Po</label>
+    </p>
+
+								    	<p>
+      <input class="with-gap" name="group1" type="radio" id="no"  />
+      <label for="no">Jo</label>
+    </p>
 						    	</div>
 					  	</li>
 
@@ -360,25 +369,25 @@
 						    	<div class="collapsible-header"><i class="material-icons">filter_8</i>Detyrimet ligjore</div>
 						    	<div class="laws collapsible-body">
 						    		<p>
-								    	<input type="checkbox" class="filled-in" id="first-law" checked="checked" />
+								    	<input name="detyrimi-ligjor-1" type="checkbox" class="filled-in" id="first-law" checked="checked" />
 								    	<label for="first-law">Unë nëpërmjet këtij dokumenti deklaroj se do të ushtroj aktivitet në fushën e komunikimeve elektronike të shënuara më sipër dhe aplikoj për regjistrim në regjistrin e ofrueseve të rrjeteve dhe shërbimeve të komunikimeve elektronike të Autoritetit (ARKEP).</label>
 								    </p>
 								    <p>
-								    	<input type="checkbox" class="filled-in" id="second-law" />
+								    	<input name="detyrimi-ligjor-2" type="checkbox" class="filled-in" id="second-law" />
 								    	<label for="second-law">Unë nëpërmjet këtij dokumenti deklaroj se kam mbyllur aktivitetet e komunikimeve elektronike të shënuara më sipër.</label>
 								    </p>
 								    <p>
-								    	<input type="checkbox" class="filled-in" id="third-law" />
+								    	<input name="detyrimi-ligjor-3" type="checkbox" class="filled-in" id="third-law" />
 								    	<label for="third-law">Unë nëpërmjet këtij dokumenti deklaroj se kam mbyllur çdo aktivitet të komunikimeve elektronike nën regjimin e Autorizimit të përgjithshëm.</label>
 								    </p>
 								    <p>
-								    	<input type="checkbox" class="filled-in" id="fourth-law" checked="checked" />
+								    	<input name="detyrimi-ligjor-4" type="checkbox" class="filled-in" id="fourth-law" checked="checked" />
 								    	<label for="fourth-law">Unë nëpërmjet këtij dokumenti deklaroj se të dhënat e mia kanë pësuar ndryshime, sikurse përshkruhen në formular.</label>
 								    </p>
 								    <p>
-								    	<input type="checkbox" class="filled-in" id="fifth-law" />
+								    	<input name="detyrimi-ligjor-5" type="checkbox" class="filled-in" id="fifth-law" />
 								    	<label for="fifth-law">Unë nëpërmjet këtij dokumenti deklaroj se kam ndryshuar formën ligjore të ndërmarrjes sime siç përshkruhet në formular. Emri i vjetër është si më poshtë:</label>
-								    	<input placeholder="Shëno këtu:" id="old-name" type="text" class="validate">
+								    	<input name="emri-i-vjeter" placeholder="Shëno këtu:" id="old-name" type="text" class="validate">
 								    </p>
 
 								    <p><i>Unë nëpërmjet këtij dokumenti paraqes në ARKEP të gjithë dokumentacionin e nevojshëm ligjor dhe/ose të gjithë dokumentet që sigurojnë se nënshkruesi i këtij Njoftimi Regjistrimi ka lidhje me personin përfaqësues.<br /><br />
@@ -390,16 +399,16 @@
 						<div class="col m6 s12">
 					        Data e Njoftimit:
 					        <div class="input-field inline">
-					        	<input class="datepicker" placeholder="Zgjedh datën" id="date" type="date" class="validate">
+					        	<input name="data-e-njoftimit" class="datepicker" placeholder="Zgjedh datën" id="date" type="date" class="validate">
 					        </div><br/>
 					        Vendi:
 					        <div class="input-field inline">
-					        	<input placeholder="Shëno" id="place" type="text" class="validate">
+					        	<input name="vendi" placeholder="Shëno" id="place" type="text" class="validate">
 					        </div><br/>
 						</div>
-						<div id="metadataSignature" class="col m6 s12 {signature: {guideline: true, guidelineColor: '#008000'}}"></div>
+						<!-- <div id="metadataSignature" class="col m6 s12 {signature: {guideline: true, guidelineColor: '#008000'}}"></div> -->
 					</div>
-					<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit
+					<button id="submitButton" class="btn btn-large waves-effect waves-light" type="submit">Submit
 						<i class="material-icons right">send</i>
 					</button>
 				</form>

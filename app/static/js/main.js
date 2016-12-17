@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	$(".etc_check").on('click', function(){
         if($(this).attr('checked', 'checked')){
             $('.specify').toggleClass("specify-input");
@@ -9,8 +10,8 @@ $(document).ready(function() {
             $('.specify-2').toggleClass("specify-input");
         }
     });
-      $('.datepicker').pickadate({
+    $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
-      });
+    });
 })

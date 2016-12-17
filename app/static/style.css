@@ -84,7 +84,7 @@ body p, a {
 
 .info-purpose p,
 .info-company p {
-	padding: 10px 30px!important;
+	padding: 20px 30px!important;
 }
 
 .info-company .input-field {
@@ -101,6 +101,7 @@ body p, a {
 }
 .info-company .info-company-field .input-field input {
 	padding-top: 7px;
+	margin-bottom: 5px!important;
 }
 
 label {
@@ -223,4 +224,13 @@ p.text-area-1 label {
 	background: -ms-linear-gradient(left, rgba(11,79,162,1) 0%, rgba(43,144,171,0.9) 100%);
 	background: linear-gradient(to right, rgba(11,79,162,1) 0%, rgba(43,144,171,0.9) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b4fa2', endColorstr='#2b90ab', GradientType=1 );
+}
+
+div.error { 
+	display: block; 
+	float: left;
+	color: #e04d4d;
+	margin-bottom: 5px;
+	font-size: 13px;
+	/*font-weight: 300;*/
 }
