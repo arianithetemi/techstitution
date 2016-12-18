@@ -10,8 +10,8 @@
 				<form id="theForm" method="POST">
 					<ul class="collapsible" data-collapsible="accordion">
 					  	<li>
-						    	<div class="hapi1 collapsible-header active"><i class="material-icons">filter_1</i>Qëllimi i njoftimit</div>
-						    	<div class="info-purpose collapsible-body">
+						    	<div class="collapsible-header active"><i class="material-icons">filter_1</i>Qëllimi i njoftimit</div>
+						    	<div class="section1 info-purpose collapsible-body">
 						    		<p>
 						    			<input name="fillimi_sherbimit" name="service-start" type="checkbox" class="filled-in" id="service-start"/>
 		      							<label for="service-start">Fillimi i shërbimit</label>
@@ -29,14 +29,14 @@
 
 					  	<li>
 						    	<div class="collapsible-header"><i class="material-icons">filter_2</i>Të dhënat për ndërmarrësin</div>
-						    	<div class="hapi2 info-company collapsible-body col s12">
+						    	<div class="section2 info-company collapsible-body col s12">
 							    	<div class="row info-company-field">
 							    		<div class="col s4">
 							         	<p>1.1 - Emri i Ndërmarrësit (Entiteti):</p>
 							         </div>
 							         <div class="input-field col s8">
 							         	<!-- max. 20chars -->
-							         	<input required="required" name="emri_ndermarresit"  placeholder="Emri i Ndërmarrësit" type="text" id="entre_name">
+							         	<input required="required" name="emri_ndermarresit"  placeholder="Emri i Ndërmarrësit" type="text" id="emri_ndermarresit">
 							         </div>
 							      </div>
 
@@ -46,7 +46,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 9numbers -->
-								         	<input name="numri_regjistrimit_biznesit" placeholder="Numri i Regjistrimit të Biznesit" type="text">
+								         	<input id="numri_regjistrimit_biznesit" name="numri_regjistrimit_biznesit" placeholder="Numri i Regjistrimit të Biznesit" type="text">
 								         </div>
 								   </div>
 
@@ -56,7 +56,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 9numbers-->
-								         	<input name="numri_fiskal" placeholder="Numri fiskal" type="text">
+								         	<input id="numri_fiskal" name="numri_fiskal" placeholder="Numri fiskal" type="text">
 								         </div>
 								   </div>
 
@@ -66,7 +66,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 30letters-->
-								         	<input name="adresa_ndermarresit" placeholder="Adresa" type="text">
+								         	<input id="adresa_ndermarresit" name="adresa_ndermarresit" placeholder="Adresa" type="text">
 								         </div>
 								   </div>
 
@@ -76,7 +76,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- mx. 10letters -->
-								         	<input name="numri_tel" placeholder="Numri i Telefonit" type="tel">
+								         	<input id="numri_tel" name="numri_tel" placeholder="Numri i Telefonit" type="tel">
 								         </div>
 								   </div>
 
@@ -86,7 +86,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         	<!-- max. 9numbers-->
-								         	<input name="num_fax" placeholder="Numri i Faksit" type="tel">
+								         	<input id="num_fax" name="num_fax" placeholder="Numri i Faksit" type="tel">
 								         </div>
 								   </div>
 
@@ -95,7 +95,7 @@
 								         	<p>1.7 - E-mail adresa</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input name="email_ndermarresit" placeholder="E-mail adresa" type="email" class="validate">
+								         	<input id="email_ndermarresit" name="email_ndermarresit" placeholder="E-mail adresa" type="email" class="validate">
 								         </div>
 								   </div>
 						    	</div>
@@ -103,14 +103,14 @@
 
 					  	<li>
 						    	<div class="collapsible-header"><i class="material-icons">filter_3</i>Të dhënat për zyrtarin ligjërisht të përgjegjëshëm</div>
-						    	<div class="hapi3 info-company collapsible-body col s12">
+						    	<div class="section3 info-company collapsible-body col s12">
 							    	<div class="row info-company-field">
 							    		<div class="col s4">
 							         	<p>2.1 - Emri i zyrtarit:</p>
 							         </div>
 							         <div class="input-field col s8">
 							         	<!-- max. 10 letters -->
-							         	<input name="emri_zyrtarit" placeholder="Emri i zyrtarit" type="text">
+							         	<input id="emri_zyrtarit" name="emri_zyrtarit" placeholder="Emri i zyrtarit" type="text">
 							         </div>
 							      </div>
 
@@ -120,7 +120,7 @@
 								         </div>
 								         <div class="input-field col s8"> 
 								         <!--max. 25letters-->
-								         	<input name="adresa_zyrtarit" placeholder="Adresa" type="text">
+								         	<input id="adresa_zyrtarit" name="adresa_zyrtarit" placeholder="Adresa" type="text">
 								         </div>
 								   </div>
 
@@ -130,7 +130,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!-- max. 10letters-->
-								         	<input name="numri_telefonit_zyrtarit" placeholder="Numri i Telefonit" type="text" class="validate">
+								         	<input id="numri_telefonit_zyrtarit" name="numri_telefonit_zyrtarit" placeholder="Numri i Telefonit" type="text" class="validate">
 								         </div>
 								   </div>
 
@@ -140,7 +140,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         <!--max.25letters-->
-								         	<input name="num_fax" placeholder="Numri i faksit" type="text" class="validate">
+								         	<input id="num_fax_zyrtarit" name="num_fax_zyrtarit" placeholder="Numri i faksit" type="text" class="validate">
 								         </div>
 								   </div>
 
@@ -149,7 +149,7 @@
 								         	<p>2.5 - E-mail adresa</p>
 								         </div>
 								         <div class="input-field col s8">
-								         	<input name="email_address_zyrtarit" placeholder="E-mail adresa" type="tel" class="validate">
+								         	<input id="email_address_zyrtarit" name="email_address_zyrtarit" placeholder="E-mail adresa" type="tel" class="validate">
 								         </div>
 								   </div>
 
@@ -159,7 +159,7 @@
 								         </div>
 								         <div class="input-field col s8">
 								         	<!--max.23 numbers-->
-								         	<input name="num_id" placeholder="Numri i ID" type="tel" class="validate">
+								         	<input id="num_id" name="num_id" placeholder="Numri i ID" type="tel" class="validate">
 								         </div>
 								   </div>
 						    	</div>
@@ -354,14 +354,14 @@
 
 
 						    			<p>
-      <input class="with-gap" name="group1" type="radio" id="yes"  />
-      <label for="yes">Po</label>
-    </p>
+							      <input class="with-gap" name="group1" type="radio" id="yes"  />
+							      <label for="yes">Po</label>
+							    </p>
 
-								    	<p>
-      <input class="with-gap" name="group1" type="radio" id="no"  />
-      <label for="no">Jo</label>
-    </p>
+															    	<p>
+							      <input class="with-gap" name="group1" type="radio" id="no"  />
+							      <label for="no">Jo</label>
+							    </p>
 						    	</div>
 					  	</li>
 

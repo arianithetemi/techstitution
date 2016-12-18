@@ -1,8 +1,10 @@
-{% extends 'layout.html' %}
 
 {% block content %}
 Rezultati:
 {{ doc }}
-<!-- {{ doc['nameOfInput'] }} -->
+
+<br/>
+<br/>
+<a href="{{ url_for('main.get_data_from_db') }}">Back to List</a>
 
 {% endblock %}

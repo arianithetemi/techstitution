@@ -1,11 +1,41 @@
 $(document).ready(function() {
 
 	$("form").submit(function(e) {
-		var testField = $('#entre_name').val();
-	 	if(testField.length === 0){
-	 		alert("Ju lutem plotso fushat!");
-	 		$('.hapi2').css('display', 'block');
-	 		// $(this).focus();
+
+		// Qëllimi i njoftimit - Validation
+		if(($('#grow-service').is(':checked')) || ($('#service-start').is(':checked')) || ($('#service-removal').is(':checked'))) {	
+		} else {
+			alert("Ju lutem zgjedhni të paktën një opsion nga 'Qëllimi i njoftimit'!");
+			$('.section1').css('display', 'block');
+			e.preventDefault(e);
+		}
+
+
+		// Të dhënat për ndërmarrësin -  Validation
+		var emri_ndermarresit = $('#emri_ndermarresit').val();
+		var numri_regjistrimit_biznesit = $('#numri_regjistrimit_biznesit').val();
+		var numri_fiskal = $('#numri_fiskal').val();
+		var adresa_ndermarresit = $('#adresa_ndermarresit').val();
+		var num_fax = $('#num_fax').val();
+		var email_ndermarresit = $('#email_ndermarresit').val();
+
+	 	if(!emri_ndermarresit || !numri_regjistrimit_biznesit || !numri_fiskal || !adresa_ndermarresit || !num_fax || !email_ndermarresit){
+	 		alert("Ju lutem plotësoni fushat në seksionin 'Të dhënat për ndërmarrësin'!");
+	 		$('.section2').css('display', 'block');
+	 		e.preventDefault(e);
+	 	}
+
+	 	// Të dhënat për zyrtarin ligjërisht të përgjegjëshëm - Validation
+	 	var emri_zyrtarit = $('#emri_zyrtarit').val();
+	 	var adresa_zyrtarit = $('#adresa_zyrtarit').val();
+	 	var numri_telefonit_zyrtarit = $('#numri_telefonit_zyrtarit').val();
+	 	var num_fax_zyrtarit = $('#num_fax_zyrtarit').val();
+	 	var email_address_zyrtarit = $('#email_address_zyrtarit').val();
+	 	var num_id = $('#num_id').val();
+
+	 	if(!emri_zyrtarit || !adresa_zyrtarit || !numri_telefonit_zyrtarit || !num_fax || !email_address_zyrtarit || !num_id){
+	 		alert("Ju lutem plotësoni fushat në seksionin 'Të dhënat për zyrtarin ligjërisht të përgjegjëshëm'!");
+	 		$('.section3').css('display', 'block');
 	 		e.preventDefault(e);
 	 	}
 	})
@@ -60,7 +90,7 @@ $(document).ready(function() {
  				number: true,
  				minlength: 9
  			},
- 			num_fax: {
+ 			num_fax_zyrtarit: {
  				required: true,
  				number: true,
  				minlength: 9
@@ -137,7 +167,7 @@ $(document).ready(function() {
  				number: "Shëno vetëm numra të lutem!",
  				minlength: "Shëno deri në 9 numra!"
  			},
- 			num_fax: {
+ 			num_fax_zyrtarit: {
  				required: "Duhet plotësuar",
  				number: "Shëno vetëm numra të lutem!",
  				minlength: "Shëno deri në 9 numra!"
@@ -166,6 +196,10 @@ $(document).ready(function() {
  				accept: "Vetem pdf dhe text files!"
  			}
 
- 		}
+ 		},
+ 		submitHandler: function(form) {
+            alert('Të dhënat u dërguan me sukses!');
+            form.submit();
+       }
  	})
 });
