@@ -12,6 +12,8 @@ body p, a {
     width: 35%;
 }
 
+
+
 .title {
 	height: 37px;
 	background: rgba(11,79,162,1);
@@ -167,7 +169,8 @@ p.text-area-1 label {
 }
 
 .activity-desc .activity-desc-field:hover,
-.activity-desc .activity-desc-field:hover {
+.activity-desc .activity-desc-field:hover,
+.docs .docs-desc-field:hover {
 	background-color: #f5f5f5;
 }
 
@@ -188,11 +191,11 @@ p.text-area-1 label {
 	padding: 20px 30px!important; 
 }
 
-#place,
-#date {
+#vendi,
+#data_e_njoftimit {
 	height: 20px!important;
 }
-#sign {
+#nenshkrimi {
 	height: 20px!important;
 	width: 250px!important;
 }
@@ -233,4 +236,12 @@ div.error {
 	margin-bottom: 5px;
 	font-size: 13px;
 	/*font-weight: 300;*/
+}
+
+.file-sect {
+	padding-top: 7px!important;
+}
+
+.docs .docs-desc-field {
+	margin-bottom: 0px!important;
 }
