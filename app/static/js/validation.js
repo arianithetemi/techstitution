@@ -53,7 +53,7 @@ $(document).ready(function() {
 			}
 		});
 
-	// Aktivitetet të cilat njoftohen/cregjistrohen - Progress Bar handler
+	// Aktivitetet të cilat njoftohen/çregjistrohen - Progress Bar handler
 		$('#ofrimi_rrjetit_publik_fiks_lokal, #ofrimi_rrjetit_publik_fiks_nacional, #sherbime_tel_lokale_nacionale, #sherbime_tel_nderkombetare, #ofrimi_rrjetit_publik_mobil_lokal, #ofrimi_rrjetit_publik_mobil_nacional, #sherbime_tel_zerit, #transmetim_dhenash, #fiber_optik_pa_ndriqim, #linja_tjera_qira, #ofrimi_rrjetave_publike_transmetim_satelitor, #ofrimi_sherbimeve_publike_satelitore, #ofrimi_sherbimeve_publike_transmetimit_te_dhenave, #ofrimi_sherbime_me_vlere_te_shtuar').bind('change', function() {
 			if($("#ofrimi_rrjetit_publik_fiks_lokal").is(':checked') || $("#ofrimi_rrjetit_publik_fiks_nacional").is(':checked') || $("#sherbime_tel_lokale_nacionale").is(':checked') || $("#sherbime_tel_nderkombetare").is(':checked') || $("#ofrimi_rrjetit_publik_mobil_lokal").is(':checked') || $("#ofrimi_rrjetit_publik_mobil_nacional").is(':checked') || $("#sherbime_tel_zerit").is(':checked') || $("#transmetim_dhenash").is(':checked') || $("#fiber_optik_pa_ndriqim").is(':checked') || $("#linja_tjera_qira").is(':checked') || $("#ofrimi_rrjetave_publike_transmetim_satelitor").is(':checked') || $("#ofrimi_sherbimeve_publike_satelitore").is(':checked') || $("#ofrimi_sherbimeve_publike_transmetimit_te_dhenave").is(':checked') || $("#ofrimi_sherbime_me_vlere_te_shtuar").is(':checked')) {
 				$(".sect4").css("background-color", "#26a69a");
