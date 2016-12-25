@@ -1,21 +1,34 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from bson import json_util, ObjectId
 mod_main = Blueprint('main', __name__)
+from werkzeug import secure_filename
+from os.path import join, dirname, realpath, os
+
+UPLOAD_FOLDER = join(dirname(realpath(__file__)), "../static/uploads/")
 
 from app import mongo
 
 @mod_main.route('/', methods=['GET', 'POST'])
 def index():
-
 	db = mongo.db.form_data
-
 	if request.method == 'GET':
 		return render_template('index.html')
 	elif request.method == 'POST':
 		data = request.form.to_dict()
 		db.insert(data)
-		# db = mongo.db.arkep.insert(request.form.to_dict())
-		return render_template('index.html')
+		
+		file = request.files['certifikata_regjistrimit_biznesit']
+		file2 = request.files['kopje_certifikates_numrit_fiskal']
+		file3 = request.files['kopje_dokumentit_informate_mbi_biznesin']
+
+		filename = file.filename
+		filename2 = file2.filename
+		filename3 = file3.filename
+		
+		file.save(os.path.join(UPLOAD_FOLDER, filename))
+		file2.save(os.path.join(UPLOAD_FOLDER, filename2))
+		file3.save(os.path.join(UPLOAD_FOLDER, filename3))
+		return redirect(url_for('main.index'))
 	else:
 		return "Bad Request"
 
