@@ -1,0 +1,507 @@
+<html>
+<head>
+	<title>Techstitiution</title>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+		<!-- Font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='materialize.min.css') }}"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!-- jQuery and JS -->
+		{% block required_scripts %}
+			<script type="text/javascript" src="{{ url_for('static', filename='js/jquery2.1.1.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+		{% endblock %}
+ 	<style>
+ 		.row {
+ 			background-color:  rgb(63, 152, 179);
+ 			width: 100%;
+ 			margin: 0;
+ 			text-align: center;
+ 			color: #fff;
+ 		}
+ 		th {
+ 			font-size: 14px;
+ 		}
+ 		tr {
+ 			font-size: 15px;
+ 			/*font-weight: lighter;*/
+ 			font-family: 'Arial', sans-serif;
+ 		}
+ 		h3 {
+ 			text-align: center;
+ 			margin: 0;
+ 			padding: 25px 0 0 0;
+ 		}
+		thead tr {
+			background-color: #eaeaea;
+		}
+		a {
+			text-align: center;
+		}
+		#title {
+			text-align: center;
+			background-color: #eaeaea;
+		}
+		#subtitle {
+			text-align: center;
+			padding: 4px;
+			font-weight: 300;
+			background-color: #f3f3f3;
+		}
+		footer p {
+			padding-top: 6px;
+		}
+
+ 	</style>
+ </head>
+
+<body>
+	<!-- Header -->
+	<div class="row">
+			<h3>Formulari i ndermarresit: {{ doc['emri_ndermarresit'] }}</h3>
+			<p>Të gjitha informatat e këtij formulari gjenden si më poshtë:</p>
+	</div>
+	
+	<div class="container">
+		<a class="btn"  style="margin: 10px;" href="{{ url_for('main.get_data_from_db') }}">Kthehu tek lista</a>
+		<table class="bordered highlight centered">
+			<tbody>
+
+				<!-- Qëllimi i njoftimit -->
+					<tr>
+						<th id="title" colspan="2">Qëllimi i njoftimit </th>
+				  	</tr>
+					<tr>
+				    		<th>Fillimi i shërbimit</th>
+				    		<td id="chk1">{{doc['fillimi_sherbimit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Shtim shërbimi</th>
+				    		<td id="chk2">{{doc['shtimi_sherbimi']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Heqje shërbimi</th>
+				    		<td id="chk3">{{doc['heqje_sherbimi']}}</td>
+				  	</tr>
+
+				<!-- Të dhënat për ndërmarrësin-->
+					<tr>
+						<th id="title" colspan="2">Të dhënat për ndërmarrësin</th>
+				  	</tr>
+				  	<tr>
+				    		<th>1.1 - Emri i Ndërmarrësit (Entiteti):</th>
+				    		<td>{{doc['emri_ndermarresit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>1.2 - Numri i Regjistrimit të Biznesit:</th>
+				    		<td>{{doc['numri_regjistrimit_biznesit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>1.3 - Numri fiskal:</th>
+				    		<td>{{doc['numri_fiskal']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>1.4 - Adresa:</th>
+				    		<td>{{doc['adresa_ndermarresit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>1.5 - Numri i Telefonit:</th>
+				    		<td>{{doc['numri_tel']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>1.6 - Numri i Faksit:</th>
+				    		<td>{{doc['num_fax']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>1.7 - E-mail adresa:</th>
+				    		<td>{{doc['email_ndermarresit']}}</td>
+				  	</tr>
+
+			 	<!-- Të dhënat për zyrtarin ligjërisht të përgjegjëshëm -->
+				 	<tr>
+						<th id="title" colspan="2">Të dhënat për zyrtarin ligjërisht të përgjegjëshëm</th>
+				  	</tr>
+				  	<tr>
+				    		<th>2.1 - Emri i zyrtarit:</th>
+				    		<td>{{doc['emri_zyrtarit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>2.2 - Adresa:</th>
+				    		<td>{{doc['adresa_zyrtarit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>2.3 - Numri i telefonit:</th>
+				    		<td>{{doc['numri_telefonit_zyrtarit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>2.4 - Numri i faksit:</th>
+				    		<td>{{doc['num_fax_zyrtarit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>2.5 - E-mail adresa:</th>
+				    		<td>{{doc['email_address_zyrtarit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>2.6 - Numri i ID:</th>
+				    		<td>{{doc['num_id']}}</td>
+				  	</tr>
+
+			  	<!-- Aktivitetet të cilat njoftohen/çregjistrohen -->
+			  		<tr>
+						<th id="title" colspan="2">Aktivitetet të cilat njoftohen/çregjistrohen </th>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i rrjetit publik fiks</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Lokal:</th>
+				    		<td id="chk4">{{doc['ofrimi_rrjetit_publik_fiks_lokal']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Nacional:</th>
+				    		<td id="chk5">{{doc['ofrimi_rrjetit_publik_fiks_nacional']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Tjera:</th>
+				    		<td>{{doc['ofrimi-rrjetit-publik-fiks-tjera']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i shërbimeve publike fikse</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Shërbime telefonike lokale/nacionale:</th>
+				    		<td id="chk6">{{doc['sherbime_tel_lokale_nacionale']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Shërbime telefonike ndërkombëtare:</th>
+				    		<td id="chk7">{{doc['sherbime_tel_nderkombetare']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Shërbime tjera:</th>
+				    		<td>{{doc['ofrimi-sherbimeve-publike-fikse-tjera']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i rrjetit publik mobil</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Lokal:</th>
+				    		<td id="chk8">{{doc['ofrimi_rrjetit_publik_mobil_lokal']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Nacional:</th>
+				    		<td id="chk9">{{doc['ofrimi_rrjetit_publik_mobil_nacional']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i shërbimeve publike mobile</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Shërbime telefonike të zërit:</th>
+				    		<td id="chk10">{{doc['sherbime_tel_zerit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Transmetim të dhënash:</th>
+				    		<td id="chk11">{{doc['transmetim_dhenash']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i shërbimeve të linjave me qira</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Fibër optik të pa-ndriçuar:</th>
+				    		<td id="chk12">{{doc['fiber_optik_pa_ndriqim']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Linja tjera me qira:</th>
+				    		<td id="chk13">{{doc['linja_tjera_qira']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i rrjetave publike me transmetim satelitor</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Ofrimi i rrjetave publike me transmetim satelitor:</th>
+				    		<td id="chk14">{{doc['ofrimi_rrjetave_publike_transmetim_satelitor']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i shërbimeve publike satelitore</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Ofrimi i shërbimeve publike satelitore:</th>
+				    		<td id="chk15">{{doc['ofrimi_sherbimeve_publike_satelitore']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i shërbimeve të transmetimit të të dhënave (Internetit)</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Ofrimi i shërbimeve publike të transmetimit të të dhënave(internetit):</th>
+				    		<td id="chk16">{{doc['ofrimi_sherbimeve_publike_transmetimit_te_dhenave']}}</td>
+				  	</tr>
+				  	<tr>
+						<th id="subtitle" colspan="2">Aktiviteti: Ofrimi i shërbimeve me vlerë të shtuar</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Ofrimi i shërbimeve me vlerë të shtuar:</th>
+				    		<td id="chk17">{{doc['ofrimi_sherbime_me_vlere_te_shtuar']}}</td>
+				  	</tr>
+
+		  		<!-- Përshkrimi i aktivitetit dhe faza e ofrimit -->
+	  				<tr>
+						<th id="title" colspan="2">Përshkrimi i aktivitetit dhe faza e ofrimit</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Përshkrimi i rrjetit dhe/ose shërbimit që do të ofrohet:</th>
+				    		<td>{{doc['pershkrimi_aktivetit_faza_ofrimit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Faza e Ofrimit:</th>
+				    		<td>{{doc['faza_ofrimit']}}</td>
+				  	</tr>
+
+				<!-- Dokumentet e bashkangjitura -->
+				  	<tr>
+						<th id="title" colspan="2">Dokumentet e bashkangjitura</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Kopje e certifikatës së regjistrimit të biznesit:</th>
+				    		<td>{{doc['certifikata_regjistrimit_biznesit']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Kopje e certifikatës së numrit fiskal:</th>
+				    		<td>{{doc['kopje_certifikates_numrit_fiskal']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Kopje e dokumentit ‘Informatë mbi biznesin:</th>
+				    		<td>{{doc['kopje_dokumentit_informate_mbi_biznesin']}}</td>
+				  	</tr>
+
+			  	<!-- Konfirmimi i njoftimit -->
+				  	<tr>
+						<th id="title" colspan="2">Konfirmimi i njoftimit</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Ndërmarrja kërkon që t’i lëshohet certifikata e konfirmimit të njoftimit për ofrimin e rrjeteve dhe/ose shërbimeve publike të komunikimeve elektronike të njoftuara përmes këtij formulari:</th>
+				    		<td id="confirm_input">{{doc['konfirmimi_njoftimit']}}</td>
+				  	</tr>
+
+				<!-- Detyrimet ligjore -->
+					<tr>
+						<th id="title" colspan="2">Detyrimet ligjore</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Unë nëpërmjet këtij dokumenti deklaroj se do të ushtroj aktivitet në fushën e komunikimeve elektronike të shënuara më sipër dhe aplikoj për regjistrim në regjistrin e ofrueseve të rrjeteve dhe shërbimeve të komunikimeve elektronike të Autoritetit (ARKEP):</th>
+				    		<td id="law_1">{{doc['detyrimi_ligjor_1']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Unë nëpërmjet këtij dokumenti deklaroj se kam mbyllur aktivitetet e komunikimeve elektronike të shënuara më sipër:</th>
+				    		<td id="law_2">{{doc['detyrimi_ligjor_2']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Unë nëpërmjet këtij dokumenti deklaroj se kam mbyllur çdo aktivitet të komunikimeve elektronike nën regjimin e Autorizimit të përgjithshëm:</th>
+				    		<td id="law_3">{{doc['detyrimi_ligjor_3']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Unë nëpërmjet këtij dokumenti deklaroj se të dhënat e mia kanë pësuar ndryshime, sikurse përshkruhen në formular:</th>
+				    		<td id="law_4">{{doc['detyrimi_ligjor_4']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Unë nëpërmjet këtij dokumenti deklaroj se kam ndryshuar formën ligjore të ndërmarrjes sime siç përshkruhet në formular. Emri i vjetër është si më poshtë:</th>
+				    		<td id="law_5">{{doc['detyrimi_ligjor_5']}}</td>
+				  	</tr>
+				  	<tr>
+				    		<th>Emri i vjetër është si më poshtë:</th>
+				    		<td>{{doc['emri_i_vjeter']}}</td>
+				  	</tr>
+
+				<!-- Informatat e fundit -->	
+					<tr>
+						<th id="title" colspan="2">Informatat e rëndësishme</th>
+				  	</tr>
+				  	<tr>
+				    		<th>Data e Njoftimit:</th>
+				    		<td>{{doc['data-e-njoftimit']}}</td>
+				  	</tr>
+				  	<tr id="last_input">
+				    		<th>Vendi:</th>
+				    		<td>{{doc['vendi']}}</td>
+				  	</tr>
+				  	<tr >
+				    		<th>Nënshkrimi dhe Vula:</th>
+				    		<td>{{doc['nenshkrimi']}}</td>
+				  	</tr>
+
+			</tbody>
+		</table>
+		<a href="{{ url_for('main.get_data_from_db') }}">Kthehu tek lista</a>
+	</div>
+		<footer>
+			<div class="row">
+				<p>© Arianit Hetemi - Techstitution for ARKEP</p>
+			</div>
+		</footer>
+
+		<!-- Changing the 'on' string to albanian word -->
+	 	<script>
+	 		var chk1 = $('#chk1'),
+	 		 	chk2 = $('#chk2'),
+	 			chk3 = $('#chk3'),
+	 			chk4 = $('#chk4'),
+	 			chk5 = $('#chk5'),
+	 			chk6 = $('#chk6'),
+	 			chk7 = $('#chk7'),
+	 			chk8 = $('#chk8'),
+	 			chk9 = $('#chk9'),
+	 			chk10 = $('#chk10'),
+	 			chk11 = $('#chk11'),
+	 			chk12 = $('#chk12'),
+	 			chk13 = $('#chk13'),
+	 			chk14 = $('#chk14'),
+	 			chk15 = $('#chk15'),
+	 			chk16 = $('#chk16'),
+	 			chk17 = $('#chk17'),
+	 			confirm_input = $('#confirm_input'),
+	 			law_1 = $('#law_1'),
+	 			law_2 = $('#law_2'),
+	 			law_3 = $('#law_3'),
+	 			law_4 = $('#law_4'),
+	 			law_5 = $('#law_5');
+
+			if(chk1.text() == 'on') {
+				chk1.text("E zgjedhur")
+			} else {
+				chk1.text("Jo e zgjedhur")
+			}
+
+			if(chk2.text() == 'on') {
+				chk2.text("E zgjedhur")
+			} else {
+				chk2.text("Jo e zgjedhur")
+			}
+
+			if(chk3.text() == 'on') {
+				chk3.text("E zgjedhur")
+			} else {
+				chk3.text("Jo e zgjedhur")
+			}
+
+			if(chk4.text() == 'on') {
+				chk4.text("E zgjedhur")
+			} else {
+				chk4.text("Jo e zgjedhur")
+			}
+
+			if(chk5.text() == 'on') {
+				chk5.text("E zgjedhur")
+			} else {
+				chk5.text("Jo e zgjedhur")
+			}
+
+			if(chk6.text() == 'on') {
+				chk6.text("E zgjedhur")
+			} else {
+				chk6.text("Jo e zgjedhur")
+			}
+
+			if(chk7.text() == 'on') {
+				chk7.text("E zgjedhur")
+			} else {
+				chk7.text("Jo e zgjedhur")
+			}
+
+			if(chk8.text() == 'on') {
+				chk8.text("E zgjedhur")
+			} else {
+				chk8.text("Jo e zgjedhur")
+			}
+
+			if(chk9.text() == 'on') {
+				chk9.text("E zgjedhur")
+			} else {
+				chk9.text("Jo e zgjedhur")
+			}
+
+			if(chk10.text() == 'on') {
+				chk10.text("E zgjedhur")
+			} else {
+				chk10.text("Jo e zgjedhur")
+			}
+
+			if(chk11.text() == 'on') {
+				chk11.text("E zgjedhur")
+			} else {
+				chk11.text("Jo e zgjedhur")
+			}
+
+			if(chk12.text() == 'on') {
+				chk12.text("E zgjedhur")
+			} else {
+				chk12.text("Jo e zgjedhur")
+			}
+
+			if(chk13.text() == 'on') {
+				chk13.text("E zgjedhur")
+			} else {
+				chk13.text("Jo e zgjedhur")
+			}	
+
+			if(chk14.text() == 'on') {
+				chk14.text("E zgjedhur")
+			} else {
+				chk14.text("Jo e zgjedhur")
+			}	
+
+			if(chk15.text() == 'on') {
+				chk15.text("E zgjedhur")
+			} else {
+				chk15.text("Jo e zgjedhur")
+			}
+
+			if(chk16.text() == 'on') {
+				chk16.text("E zgjedhur")
+			} else {
+				chk16.text("Jo e zgjedhur")
+			}
+
+			if(chk17.text() == 'on') {
+				chk17.text("E zgjedhur")
+			} else {
+				chk17.text("Jo e zgjedhur")
+			}
+
+			if(confirm_input.text() == 'on') {
+				confirm_input.text("Po");
+			} else {
+				confirm_input.text("Jo");
+			}
+
+			if(law_1.text() == 'on') {
+				law_1.text("E zgjedhur");
+			} else {
+				law_1.text("Jo e zgjedhur");
+			}
+			if(law_2.text() == 'on') {
+				law_2.text("E zgjedhur");
+			} else {
+				law_2.text("Jo e zgjedhur");
+			}
+			if(law_3.text() == 'on') {
+				law_3.text("E zgjedhur");
+			} else {
+				law_3.text("Jo e zgjedhur");
+			}
+			if(law_4.text() == 'on') {
+				law_4.text("E zgjedhur");
+			} else {
+				law_4.text("Jo e zgjedhur");
+			}
+			if(law_5.text() == 'on') {
+				law_5.text("E zgjedhur");
+			} else {
+				law_5.text("Jo e zgjedhur");
+			}
+	 	</script>
+
+</body>
+</html>
+

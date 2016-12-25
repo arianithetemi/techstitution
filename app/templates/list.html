@@ -1,36 +1,70 @@
 <html>
 <head>
-		<title>Techstitiution</title>
-			<!--Import Google Icon Font-->
-						<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-						<!-- Font -->
-						<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-			<!--Import materialize.css-->
-			<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='materialize.min.css') }}"/>
-			<!--Let browser know website is optimized for mobile-->
-						<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<!-- jQuery and JS -->
-			{% block required_scripts %}
-				<script type="text/javascript" src="{{ url_for('static', filename='js/jquery2.1.1.min.js') }}"></script>
-							<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.js') }}"></script>
-							<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-			{% endblock %}
+	<title>Techstitiution</title>
+		<!--Import Google Icon Font-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- Font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='materialize.min.css') }}"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!-- jQuery and JS -->
+		{% block required_scripts %}
+			<script type="text/javascript" src="{{ url_for('static', filename='js/jquery2.1.1.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+		{% endblock %}
+ 	<style>
+ 		.row {
+ 			background-color:  rgb(63, 152, 179);
+ 			width: 100%;
+ 			margin: 0;
+ 			text-align: center;
+ 			color: #fff;
+ 		}
+ 		.row p {
+ 			font-size: 16px;
+ 		}
+ 		h3 {
+ 			text-align: center;
+ 			margin: 0;
+ 			padding: 25px 0 0 0;
+ 		}
+ 		footer {
+		  position: fixed;
+		  right: 0;
+		  bottom: 0;
+		  left: 0;
+		  text-align: center;
+		}
+		footer p {
+			padding: 10px;
+			margin: 0;
+		}
+		thead tr {
+			    background-color: #eaeaea;
+		}
+ 	</style>
  </head>
 
 
 <body>
+
+
+	<div class="row">
+			<h3>Paneli i Adminit</h3>
+			<p>Të gjithë formularët e dorëzuar janë të listuara më poshtë</p>
+	</div>
+
 <div class="container">
 
-	<header>
-		<h1></h1>	
-	</header>
-
-	<table class="highlight">
+	<table class="bordered highlight centered">
 		<thead>
-			<tr>
-				<th data-field="id">Company Name</th>
-				<th data-field="name">Address</th>
-				<th data-field="action">Actions</th>
+			<tr >
+				<th data-field="id">Emri i Ndërmarrësit:</th>
+				<th data-field="name">Adresa e Ndërmarrësit:</th>
+				<th data-field="action">Veprimet:</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,7 +74,7 @@
 			<td>{{ item['adresa_ndermarresit'] }}</td>
 
 			<td>
-				 <a href="{{ url_for('main.get_data', id=item._id) }}">View</a> / <a href="{{ url_for('main.remove_data', id=item._id) }}">Delete</a>
+				 <a href="{{ url_for('main.get_data', id=item._id) }}">Shiko në hollësi</a> / <a href="{{ url_for('main.remove_data', id=item._id) }}">Fshij</a>
 			</td>
 		</tr>
 		{% endfor %}
@@ -49,6 +83,12 @@
 
 </div>
 
+
+	<footer>
+		<div class="row">
+			<p>© Arianit Hetemi - Techstitution for ARKEP</p>
+		</div>
+	</footer>
 
 </body>
 </html>

@@ -26,7 +26,7 @@ def get_data(id):
 	if request.method == 'GET':
 		doc = db.find_one({"_id": ObjectId(id)})
 		# doc_json = json_util.dumps(doc)
-		return render_template('results.html', doc=doc)
+		return render_template('result.html', doc=doc)
 	else:
 		return "Bad Request"
 

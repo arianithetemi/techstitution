@@ -126,6 +126,7 @@ $(document).ready(function() {
 		})
 
 	// Validation after clicking Submit
+	
 	$("form").submit(function(e) {	
 		// Qëllimi i njoftimit - Validation
 			var fillimi_sherbimit = $('#service-start').prop("checked");
